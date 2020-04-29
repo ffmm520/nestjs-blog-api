@@ -4,6 +4,7 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  // swagger 配置
   const options = new DocumentBuilder()
     .setTitle('nestjs blog')
     .setDescription('My first nest api')
@@ -12,6 +13,6 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api-docs', app, document); // 尽量不要直接挂载api, 避免bug
-  await app.listen(3000);
+  await app.listen(5000);
 }
 bootstrap();
